@@ -30,25 +30,29 @@ public class CheckoutScreen extends AppCompatActivity {
 
         // here we gonna get Products (Product details ) that in our cart n show it to user,...
 
-      int cartSize =   myApplication.getCart().getCartsize();
+        int cartSize =   myApplication.getCart().getCartsize();
 
-        for(int i = 0 ; i<cartSize ; i++) {
+        if(cartSize >0) {
 
-            String pName =  myApplication.getCart().getProductsFromCart(i).getProductName();  // getting cartObject then ProductObject from it ..then name from ProjectObject
-            String pDesc =  myApplication.getCart().getProductsFromCart(i).getProductDesc();
-            int pPrice =  myApplication.getCart().getProductsFromCart(i).getProductPrice();
+            for (int i = 0; i < cartSize; i++) {
+
+                String pName = myApplication.getCart().getProductsFromCart(i).getProductName();  // getting cartObject then ProductObject from it ..then name from ProjectObject
+                String pDesc = myApplication.getCart().getProductsFromCart(i).getProductDesc();
+                int pPrice = myApplication.getCart().getProductsFromCart(i).getProductPrice();
 
 
-            //  you know that we cant just ..our products details to single list view ...bcoz its gonna override...so we have to create text view programitically
-            // so we got another way to do it...the details we getting about the products..we appeding it to buffer..then adding buffer to textView..cool
+                //  you know that we cant just ..our products details to single list view ...bcoz its gonna override...so we have to create text view programitically
+                // so we got another way to do it...the details we getting about the products..we appeding it to buffer..then adding buffer to textView..cool
 
-            buffer.append("Name: "+pName +", "+ " Desc: "+pDesc+ ", "+"Price: "+pPrice+"\n\n");
+                buffer.append("Name: " + pName + ", " + " Desc: " + pDesc + ", " + "Price: " + pPrice + "\n\n");
+            }
+
+            showCart.setText(buffer);
+        } else {
+            buffer.append("No item in cart.Please add some!");
+
+            showCart.setText(buffer);
         }
-
-        showCart.setText(buffer);
-
-
-
     }
 
     private void initObjects() {
