@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by Avi Hacker on 3/11/2017.
  */
 
-// we creating array list of our products here ...n also cart object ..so they are just created here once n..we dont need to created cart object again n again ..
+// we creating array list of our products here ...n also cart object ..so they are just created here once n..we dont need to created cart object again n again ..coz it will not work --> to see how it wrok see Project POJOPitfalls and ApplicationClassForObjectCreation.
     // in our project...n we can use it... by access this clas by its object (myApplication) ,n..what is here we can use it in any activity ..it could be accessible in whole project..
 
 public class MyApplication extends Application {
